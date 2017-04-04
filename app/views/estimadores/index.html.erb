@@ -1,0 +1,200 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+
+
+
+    <div  class="col-md-12">
+      <div class="title-bar">
+        <h5 class="title-bar-title">Estimador del mes</h5>
+      </div>
+    </div>
+    <div  class="col-md-12">
+
+      <div  class="col-sm-6">
+        <div  class="card">
+          <div  class="card-body">
+
+
+            <div  class="media">
+              <div  class="media-middle media-left">
+                <span  class="circle sq-36 bg-info-inverse">
+                  <span  class="icon icon-file-o"></span>
+                </span>
+              </div>
+              <div  class="media-middle media-body">
+                <h4  class="media-heading fw-l">Colegio  </h4>
+              </div>
+
+              <select class="js-example-basic-single col-md-9">
+                <option></option>
+                <option value="AL">Colegio Santas Carmelitas</option>
+              </select>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <div  class="col-sm-6">
+        <div  class="card">
+          <div  class="card-body">
+
+
+            <div  class="media">
+              <div  class="media-middle media-left">
+                <span  class="circle sq-36 bg-info-inverse">
+                  <span  class="icon icon-file-o"></span>
+                </span>
+              </div>
+              <div  class="media-middle media-body">
+                <h4  class="media-heading fw-l">Fecha  </h4>
+
+
+
+
+              </div>
+              <input id="datepicker" class="form-control" type="text" data-inputmask="'alias': 'dd-mm-yyyy'">
+
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+       <div  class="col-sm-4">
+        <div  class="card">
+          <div  class="card-body">
+            <div  class="media">
+              <div  class="media-middle media-left">
+                <span  class="circle sq-36 bg-info-inverse">
+                  <span  class="icon icon-file-o"></span>
+                </span>
+              </div>
+              <div  class="media-middle media-body">
+                <h4  class="media-heading fw-l">Ciclo Academico</h4>
+              </div>
+
+              <select id="ciclo"   class="js-example-basic-single col-md-9">
+
+              </select>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="col-sm-4">
+        <div  class="card">
+          <div  class="card-body">
+            <div  class="media">
+              <div  class="media-middle media-left">
+                <span  class="circle sq-36 bg-info-inverse">
+                  <span  class="icon icon-file-o"></span>
+                </span>
+              </div>
+              <div  class="media-middle media-body">
+                <h4  class="media-heading fw-l">Nivel</h4>
+              </div>
+
+              <select  id="nivel" class="js-example-basic-single col-md-9">
+
+              </select>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="col-sm-4">
+      <div  class="card">
+        <div  class="card-body">
+          <div  class="media">
+            <div  class="media-middle media-left">
+              <span  class="circle sq-36 bg-info-inverse">
+                <span  class="icon icon-file-o"></span>
+              </span>
+            </div>
+            <div  class="media-middle media-body">
+              <h4  class="media-heading fw-l">Grado</h4>
+            </div>
+
+            <select id="grado"  class="js-example-basic-single col-md-9">
+
+
+            </select>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div  class="col-sm-12">
+      <div  class="card">
+        <div  class="card-body">
+
+          <button id="estimar" class="btn btn-primary col-sm-12" type="button">Estimar</button>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
+<script>
+
+  ciclos = [
+      {id : -1,
+      text: "Seleccionar Ciclo Academico"
+      },
+      <% Grado.select("estado").group("estado").all.each_with_index  do |ciclo,ixx| %>
+      {
+          id   : <%= ixx %>,
+          text : "<%= ciclo.estado.capitalize %>",
+          cursos :[
+              {id : -1,
+                  text: "Seleccionar Nivel"
+              },
+              <% Grado.where("estado = '#{ciclo.estado}'").all.each_with_index do |grado,jxx| %>
+              {
+                  id  : <%= jxx %>,
+                  text : "<%= grado.grado %>",
+                  grados : [
+                      {id : -1,
+                          text: "Seleccionar Grado"
+                      },
+
+                     <% grado.cursos.each do  |curso| %>
+                      {
+                          id : <%= curso.id %>,
+
+                          <% if ciclo.estado.capitalize  != "Kinder" %>
+                          text : "<%= grado.nivel %> - <%= curso.letra %>",
+                          <% else %>
+                          text : "<%=  grado.grado %> - <%= curso.letra %>",
+                          <%end %>
+
+                      },
+                      <% end %>
+                  ]
+
+              },
+              <% end %>
+          ],
+
+      },
+  <% end %>
+  ]
+
+</script>

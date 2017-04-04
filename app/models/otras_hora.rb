@@ -1,0 +1,2 @@
+class OtrasHora < ApplicationRecord
+end

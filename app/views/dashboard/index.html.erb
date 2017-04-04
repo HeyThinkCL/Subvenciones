@@ -1,0 +1,175 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+    <div class="title-bar">
+      <div class="title-bar-actions">
+        <select class="selectpicker dropdown" name="period" data-dropdown-align-right="true" data-style="btn-default btn-sm" data-width="fit">
+
+          <option value="yesterday">Colegio Santas Carmelitas </option>
+
+        </select>
+      </div>
+      <h1 class="title-bar-title">
+        <span class="d-ib">Consola Subvenciones</span>
+
+      </h1>
+
+    </div>
+    <div class="row gutter-xs">
+      <div class="col-xs-6 col-md-3">
+        <div class="card">
+          <div class="card-values">
+            <div class="p-x">
+              <small>Colegios</small>
+              <h3 class="card-title fw-l">1</h3>
+            </div>
+          </div>
+          <div class="card-chart">
+            <canvas data-chart="line" data-animation="false" data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]' data-values='[{"backgroundColor": "rgba(39, 174, 96, 0.03)", "borderColor": "#27ae60", "data": [25250, 23370, 25568, 28961, 26762, 30072, 25135]}]' data-scales='{"yAxes": [{ "ticks": {"max": 32327}}]}' data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]' height="35"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <div class="card">
+          <div class="card-values">
+            <div class="p-x">
+              <small>Alumnos</small>
+              <h3 class="card-title fw-l"><%= Curso.sum(:cantidad_alumnos) %></h3>
+            </div>
+          </div>
+          <div class="card-chart">
+            <canvas data-chart="line" data-animation="false" data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]' data-values='[{"backgroundColor": "rgba(39, 174, 96, 0.03)", "borderColor": "#27ae60", "data": [8796, 11317, 8678, 9452, 8453, 11853, 9945]}]' data-scales='{"yAxes": [{ "ticks": {"max": 12742}}]}' data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]' height="35"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <div class="card">
+          <div class="card-values">
+            <div class="p-x">
+              <small>Docentes</small>
+              <h3 class="card-title fw-l"><%= Profesor.count() %></h3>
+            </div>
+          </div>
+          <div class="card-chart">
+            <canvas data-chart="line" data-animation="false" data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]' data-values='[{"backgroundColor": "rgba(39, 174, 96, 0.03)", "borderColor": "#27ae60", "data": [116196, 145160, 124419, 147004, 134740, 120846, 137225]}]' data-scales='{"yAxes": [{ "ticks": {"max": 158029}}]}' data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]' height="35"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <div class="card">
+          <div class="card-values">
+            <div class="p-x">
+              <small>Ingresos</small>
+              <h3 class="card-title fw-l">925,590</h3>
+            </div>
+          </div>
+          <div class="card-chart">
+            <canvas data-chart="line" data-animation="false" data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]' data-values='[{"backgroundColor": "rgba(39, 174, 96, 0.03)", "borderColor": "#27ae60", "data": [116196, 145160, 124419, 147004, 134740, 120846, 137225]}]' data-scales='{"yAxes": [{ "ticks": {"max": 158029}}]}' data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]' height="35"></canvas>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row gutter-xs">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="media">
+              <div class="media-middle media-left">
+                      <span class="bg-gray sq-64 circle">
+                        <span class="icon icon-flag"></span>
+                      </span>
+              </div>
+              <div class="media-middle media-body">
+                <h3 class="media-heading">
+                  <span class="fw-l"><%= Curso.sum(:inasistencias) %> Insasistencia</span>
+
+                </h3>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="media">
+
+              <div class="media-middle media-body">
+                <h2 class="media-heading">
+                  <span class="fw-l"><%= Alumno.where(:subvenciones_id => 4).sum(:inasistencias) %></span>
+                  <small>Inasistencia Pie</small>
+                </h2>
+                <small>Mes abril</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="media">
+
+              <div class="media-middle media-body">
+                <h2 class="media-heading">
+                  <span class="fw-l"><%= Alumno.where(:subvenciones_id => 2).sum(:inasistencias) %></span>
+                  <small>Inasistencia Sep</small>
+                </h2>
+                <small>Mes abril</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="media">
+
+              <div class="media-middle media-body">
+                <h2 class="media-heading">
+                  <span class="fw-l"><%= Alumno.where(:subvenciones_id => 3).sum(:inasistencias) %></span>
+                  <small>Inasistencia Prioritarios</small>
+                </h2>
+                <small>Mes abril</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row gutter-xs">
+      <div class="col-xs-12 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Inasistencia durante el año</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-chart"><iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+
+              <%= line_chart           @data, @options %>
+
+               </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Cantidad de alumnos por  subvenciones</h4>
+          </div>
+          <div class="card-body">
+            <div class="card-chart">
+
+              <%= pie_chart           @data2, @options %>
+
+               </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

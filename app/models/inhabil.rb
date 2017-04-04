@@ -1,0 +1,2 @@
+class Inhabil < ApplicationRecord
+end

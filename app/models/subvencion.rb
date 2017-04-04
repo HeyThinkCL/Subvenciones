@@ -1,0 +1,6 @@
+class Subvencion < ApplicationRecord
+
+
+
+
+end

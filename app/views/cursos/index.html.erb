@@ -1,0 +1,58 @@
+<div class="layout-content">
+  <div class="layout-content-body">
+
+
+
+    <% Grado.select("estado").group("estado").all.each_with_index  do |ciclo,ixx| %>
+    <div  class="col-md-12">
+      <div class="title-bar">
+        <h5 class="title-bar-title"><%= ciclo.estado.capitalize %></h5>
+      </div>
+    </div>
+
+
+    <div  class="col-md-12">
+
+      <% Grado.where("estado = '#{ciclo.estado}'").order("id asc").all.each_with_index do |grado,jxx| %>
+          <% grado.cursos.sort_by {|curso| curso.id}.each do  |curso| %>
+      <div  class="col-sm-3">
+        <div  class="card">
+          <div  class="card-body">
+
+
+            <div  class="media">
+              <div  class="media-middle media-left">
+                <span  class="circle sq-36 bg-info-inverse">
+                  <span  class="icon icon-file-o"></span>
+                </span>
+              </div>
+              <div  class="media-middle media-body">
+                <h4  class="media-heading fw-l"><%= grado.grado %>  - <%= curso.letra %>  <%= curso.id %></h4>
+
+              </div>
+              <%= doughnut_chart            pie_curso(curso), {} %>
+              <h5  class="media-heading fw-l">Maximo $<%= number_with_delimiter(monto_maximo(curso), :delimiter => '.') %>.-</h5>
+              <a class="btn btn-success" href="/estimadores/<%= curso.id %>" type="button">Ir a Curso</a>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+              <% end %>
+<% end %>
+
+
+
+
+
+    </div>
+
+        <%end %>
+
+
+
+  </div>
+</div>
