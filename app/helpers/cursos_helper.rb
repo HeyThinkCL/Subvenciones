@@ -7,8 +7,8 @@ module CursosHelper
 
     @data = {
         labels: [
-            "Perdidas",
-            "Ganancias"
+            "Sub. No percibida",
+            "Ingresos"
         ],
         datasets: [
             {

@@ -18,7 +18,7 @@
 
             <div class="media-middle media-body">
               <h3 class="media-heading">
-                <span class="fw-l">$<%= number_with_delimiter(@monto, :delimiter => '.') %>. Ingresos</span>
+                <span class="fw-l">$<%= number_with_delimiter(@monto, :delimiter => '.') %>. Ingresos Subvencion</span>
               </h3>
 
             </div>
@@ -37,10 +37,10 @@
             </div>
             <div class="media-middle media-body">
               <h2 class="media-heading">
-                <span class="fw-l">$<%= number_with_delimiter(@perdida, :delimiter => '.') %>.</span>
-                <small>Perdida</small>
+                <span class="fw-l">$<%= number_with_delimiter(@perdida, :delimiter => '.') %>. Sub no percibida</span>
+
               </h2>
-              <small>Mes abril</small>
+
             </div>
           </div>
         </div>
@@ -201,7 +201,7 @@
                 </span>
               </div>
               <div  class="media-middle media-body">
-                <h4  class="media-heading fw-l"> Perdida de los ultimos tres meses más proyección hasta este mes</h4>
+                <h4  class="media-heading fw-l"> Sub. no percibida de los ultimos tres meses más proyección hasta este mes</h4>
 
               </div>
 
@@ -211,7 +211,7 @@
         </div>
       </div>
 
-      <div  class="col-sm-4">
+      <div  class="col-sm-3">
         <div  class="card">
           <div  class="card-body">
 
@@ -233,7 +233,7 @@
         </div>
       </div>
 
-      <div  class="col-sm-4">
+      <div  class="col-sm-3">
         <div  class="card">
           <div  class="card-body">
 
@@ -245,7 +245,7 @@
                 </span>
               </div>
               <div  class="media-middle media-body">
-                <h4  class="media-heading fw-l"> Perdida de los ultimos tres meses más proyección hasta este mes</h4>
+                <h4  class="media-heading fw-l"> Tabla comparativa Subvencion Base</h4>
 
               </div>
 
@@ -255,7 +255,7 @@
         </div>
       </div>
 
-      <div  class="col-sm-4">
+      <div  class="col-sm-3">
         <div  class="card">
           <div  class="card-body">
 
@@ -267,7 +267,28 @@
                 </span>
               </div>
               <div  class="media-middle media-body">
-                <h4  class="media-heading fw-l"> Perdida de los ultimos tres meses más proyección hasta este mes</h4>
+                <h4  class="media-heading fw-l"> Tabla comparativa Sep</h4>
+
+              </div>
+
+              <%= bar_chart @proyeccion, {} %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  class="col-sm-3">
+        <div  class="card">
+          <div  class="card-body">
+
+
+            <div  class="media">
+              <div  class="media-middle media-left">
+                <span  class="circle sq-36 bg-info-inverse">
+                  <span  class="icon icon-file-o"></span>
+                </span>
+              </div>
+              <div  class="media-middle media-body">
+                <h4  class="media-heading fw-l"> Tabla comparativa Prioritarios</h4>
 
               </div>
 
@@ -292,7 +313,7 @@
                 </span>
               </div>
               <div  class="media-middle media-body">
-                <h4  class="media-heading fw-l"> Predicción del mes</h4>
+                <h4  class="media-heading fw-l"> Tabla comparativa Pie</h4>
 
               </div>
 

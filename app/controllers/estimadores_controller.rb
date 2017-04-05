@@ -151,20 +151,20 @@ class EstimadoresController < ApplicationController
         ],
         datasets:[
             {
-                label: "Subvencion Base",
-                backgroundColor: "rgba(220,220,220,0.2)",
-                borderColor: "rgba(220,220,220,1)",
+                label: "Maximo",
+                backgroundColor: "rgba(22,22,22,0.2)",
+                borderColor: "rgba(22,22,22,1)",
                 data: [65, 59, 80, 81]
             },
             {
-                label: "Sep",
-                backgroundColor: "rgba(151,187,205,0.2)",
+                label: "Ingreso",
+                backgroundColor: "rgba(54,162,235,0.8)",
                 borderColor: "rgba(151,187,205,1)",
                 data: [28, 48, 40, 19]
             },
             {
-                label: "Pie",
-                backgroundColor: "rgba(151,187,205,0.2)",
+                label: "No percibido",
+                backgroundColor: "rgba(255,99,132,0.8)",
                 borderColor: "rgba(151,187,205,1)",
                 data: [38, 18, 4, 9]
             }
