@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20170315204950) do
     t.string   "nombre"
     t.string   "apellido"
     t.string   "email"
+    t.string   "passwd"
     t.integer  "colegio_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

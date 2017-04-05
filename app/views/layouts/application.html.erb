@@ -73,7 +73,7 @@
         </button>
         <ul class="nav navbar-nav navbar-right">
           <li class="visible-xs-block">
-            <h4 class="navbar-text text-center">Hola, Fabian Plaza</h4>
+            <h4 class="navbar-text text-center">Hola, <%= @usuario.nombre%> <%= @usuario.apellido%></h4>
           </li>
           <li class="hidden-xs hidden-sm">
             <form class="navbar-search navbar-search-collapsed">
@@ -130,7 +130,7 @@
           </li>
           <li class="dropdown hidden-xs">
             <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-               Fabian Plaza
+              <%= @usuario.nombre%> <%= @usuario.apellido%>
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
@@ -224,7 +224,7 @@
               <ul class="sidenav-subnav collapse">
                 <li class="sidenav-subheading">Cursos</li>
                 <li><a href="/cursos">Buscar</a></li>
-                <li><a href="badges.html">Asignaciones</a></li>
+                <li><a href="#">Asignaciones</a></li>
               </ul>
 
             </li>
@@ -243,13 +243,7 @@
                 <span class="sidenav-label">Registros</span>
               </a>
 
-            </li>   <li class="sidenav-item  <%= active("dashboard") %>">
-              <a href="/estimadores" aria-haspopup="true">
-                <span class="sidenav-icon icon icon-edit"></span>
-                <span class="sidenav-label">Sincronizador</span>
-              </a>
 
-            </li>
 
 
             <li class="sidenav-heading">Funcionarios</li>
@@ -260,10 +254,10 @@
               </a>
               <ul class="sidenav-subnav collapse">
                 <li class="sidenav-subheading">UI Elements</li>
-                <li><a href="cropper.html">Crear</a></li>
-                <li><a href="form-controls.html">Buscar</a></li>
-                <li><a href="badges.html">Editar</a></li>
-                <li><a href="badges.html">Buscar Reemplezantes</a></li>
+                <li><a href="#">Crear</a></li>
+                <li><a href="#">Buscar</a></li>
+                <li><a href="#">Editar</a></li>
+                <li><a href="#">Buscar Reemplezantes</a></li>
 
 
               </ul>

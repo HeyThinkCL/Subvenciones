@@ -7,6 +7,7 @@ class CreateUsuarios < ActiveRecord::Migration[5.0]
       t.string  :nombre
       t.string  :apellido
       t.string  :email
+      t.string  :passwd
 
       t.belongs_to :colegio
 

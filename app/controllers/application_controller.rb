@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
     if session[:id]
 
+
+      @usuario = Usuario.find (session[:id])
     else
       redirect_to action: 'index',controller: 'login', status: 302
     end
