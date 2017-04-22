@@ -5,10 +5,11 @@ class ApplicationController < ActionController::Base
   def ensure_login
 
 
-    if session[:id]
+    if session[:usuario]
 
 
-      @usuario = Usuario.find (session[:id])
+      @usuario = session[:usuario]
+      @colegio = session[:colegio]
     else
       redirect_to action: 'index',controller: 'login', status: 302
     end

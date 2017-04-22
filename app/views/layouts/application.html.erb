@@ -73,7 +73,7 @@
         </button>
         <ul class="nav navbar-nav navbar-right">
           <li class="visible-xs-block">
-            <h4 class="navbar-text text-center">Hola, <%= @usuario.nombre%> <%= @usuario.apellido%></h4>
+            <h4 class="navbar-text text-center">Hola, <%= @usuario['nombre']%> <%= @usuario['apellido']%></h4>
           </li>
           <li class="hidden-xs hidden-sm">
             <form class="navbar-search navbar-search-collapsed">
@@ -130,7 +130,7 @@
           </li>
           <li class="dropdown hidden-xs">
             <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-              <%= @usuario.nombre%> <%= @usuario.apellido%>
+              <%= @usuario['nombre']%> <%= @usuario['apellido']%>
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">

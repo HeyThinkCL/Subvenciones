@@ -34,7 +34,7 @@
     <a class="login-brand" href="index.html">
 
     </a>
-    <h3 class="login-heading">Innova Profes</h3>
+    <h3 class="login-heading">Subvenciones</h3>
     <div class="login-form">
       <form data-toggle="md-validator" action="<%= url_for(controller: 'login', :action =>'create') %>" method="post">
         <div class="md-form-group md-label-floating">
@@ -42,7 +42,7 @@
           <label class="md-control-label">Email</label>
         </div>
         <div class="md-form-group md-label-floating">
-          <input class="md-form-control" type="password" name="password" minlength="6" data-msg-minlength="Su contraseña deber ser de al menos de 6 caracteres." data-msg-required="Ingrese una contraseña." required>
+          <input class="md-form-control" type="password" name="password" minlength="4" data-msg-minlength="Su contraseña deber ser de al menos de 4 caracteres." data-msg-required="Ingrese una contraseña." required>
           <label class="md-control-label">Contraseña</label>
         </div>
         <div class="md-form-group md-custom-controls">

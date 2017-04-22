@@ -1,4 +1,4 @@
-cursos =["A","B"]
+cursos =["A"]
 Grado.all.each do |grado|
   cursos.each do |curso|
     c = Curso.new()

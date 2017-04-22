@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   root to:'dashboard#index'
 
+  get '/logout' => 'login#logout'
+
 end

@@ -1,5 +1,22 @@
 class DashboardController < ApplicationController
+  def ingresos
+
+    ingreso = 0
+    Curso.all.each do |curso|
+
+
+    @perdida = (curso.grado.valores.inject(0){|sum,x| sum + x.precio/session[:dias_habiles] } )*curso.inasistencias/100
+    @maximo = curso.grado.valores.inject(0){|sum,x| sum + x.precio }*(curso.cantidad_alumnos)/100
+
+    ingreso =ingreso+( @maximo - @perdida)
+    end
+    return ingreso
+  end
   def index
+
+
+    @ingreso_total =ingresos()
+
 
     @data = {
         labels: ["Enero", "Febrero", "Marzo", "April", "Mayo", "Junio", "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],

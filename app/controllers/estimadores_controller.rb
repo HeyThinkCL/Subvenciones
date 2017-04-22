@@ -14,18 +14,9 @@ class EstimadoresController < ApplicationController
 
   def show
 
-    inicio = "2017-04-01".to_date
-    fin = inicio.end_of_month+1
 
-    dia = inicio
-    dias = 0
-    while dia < fin  do
-      if dia.wday != 0 and   dia.wday < 6
-        dias = dias+1
-      end
-      dia = dia+1
-    end
-    @dias = dias
+
+    @dias = session[:dias_habiles]
 
 
 
@@ -34,14 +25,14 @@ class EstimadoresController < ApplicationController
 
 
     @perdida = (@curso.grado.valores.inject(0){|sum,x| sum + x.precio/@dias } )*@curso.inasistencias/100
-    @monto = @curso.grado.valores.inject(0){|sum,x| sum + x.precio }*(@curso.cantidad_alumnos)/100 - @perdida
     @maximo = @curso.grado.valores.inject(0){|sum,x| sum + x.precio }*(@curso.cantidad_alumnos)/100
+
+    @monto = @maximo - @perdida
+
 
 
 
     id = params[:id]
-
-    @sb2= sb = Alumno.where("cursos_id  = #{id} and subvenciones_id = 1 ").first
 
     @sb = {
         labels: [
@@ -51,7 +42,7 @@ class EstimadoresController < ApplicationController
         ],
         datasets: [
             {
-                data: [sb['inasistencias'],sb['asistencias']],
+                data: [@curso.inasistencias,@curso.cantidad_alumnos*@dias-@curso.cantidad_alumnos],
                 backgroundColor: [
                     "#FF6384",
                     "#36A2EB"
